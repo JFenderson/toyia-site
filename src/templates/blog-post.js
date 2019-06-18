@@ -1,4 +1,5 @@
 import React from "react"
+import Helmet from 'react-helmet'
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
@@ -14,6 +15,14 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
+        <Helmet htmlAttributes={{ lang: "en" }}>
+          <title>${siteTitle}</title>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+          <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="ZTc5NmI3YTItOTVlYi00ZDdiLWE0OGMtZjcxNDc1ODIzYmRiNjM2OTY0Mjg2MzYxMDE5MDE2"></script>
+          
+          <link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" type="text/css" rel="stylesheet" />
+        </Helmet>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
